@@ -1,11 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
 
 namespace MailCore.Helpers
 {
+    public class Configs
+    {
+        public static List<MailConfig> mailConfigs = new List<MailConfig>()
+        {
+            new MailConfig
+            {
+                Host = "",
+                Mail = "",
+                Password = "",
+                Port = 161,
+                SSL = true
+            },
+            new MailConfig
+            {
+                Host = "",
+                Mail = "",
+                Password = "",
+                Port = 25,
+                SSL = true
+            },
+            new MailConfig
+            {
+                Host = "",
+                Mail = "",
+                Password = "",
+                Port = 15,
+                SSL = true
+            }
+        };
+    }
+
     public class MailConfig
     {
+        public int Id { get; set; }
         public string Host { get; set; }
         public string Mail { get; set; }
         public string Password { get; set; }

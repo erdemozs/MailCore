@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MailCore.Models;
+using MailCore.Helpers;
+using MailCore.Models.ViewModels.Input;
 
 namespace MailCore.Controllers
 {
@@ -23,6 +25,16 @@ namespace MailCore.Controllers
             return View();
         }
 
+        public ActionResult Mail()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Mail(MailInput input)
+        {
+            var config = Configs.mailConfigs.Where(s => s.Id == input.ConfigId);
+            //MailHelper.SendMail(config,)
+        }
         public IActionResult Privacy()
         {
             return View();
